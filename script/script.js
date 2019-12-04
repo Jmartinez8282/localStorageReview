@@ -56,12 +56,24 @@ function populateDropDownMenu() {
         a.setAttribute('class', 'dropdown-item');
         a.setAttribute('href', '#');
         a.innerText = element.title;
+        a.addEventListener('click',function(e){
+            checkListTitle(e.toElement.innerText)
+        });
         dropdownMenu.appendChild(a);
         //element.title
     });
 
 }
-function populateListItems() {
+function checkListTitle(){
+    exampleData.forEach(element => {
+        if(element.title === string){
+            loadList(element.title, element.listItems);
+        }
+    });
+}
+
+
+function loadList(title,arr) {
 
 }
 function anakin(chamber) {

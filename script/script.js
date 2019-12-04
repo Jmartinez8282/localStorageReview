@@ -31,15 +31,19 @@ clearBtn.addEventListener('click', function (e) {
 
 
 sumitBtn.addEventListener('click', function (e) {
-
+    newList();
+});
+function newList() {
     let obj = {
         title: inputArea.value,
         listItems: []
     }
     exampleData.push(obj);
     saveData();
+    populateDropDownMenu();
     inputArea.value = "";
-});
+}
+
 function saveData() {
     localStorage.setItem('localArrayKey', JSON.stringify(exampleData));
 }

@@ -14,12 +14,22 @@ let inputArea = document.getElementById('inputArea');
 let sumitBtn = document.getElementById('sumitBtn');
 let dropdownMenuButton = document.getElementById('dropdownMenuButton');
 let elementArea = document.getElementById('elementAre');
+let clearBtn = document.getElementById('clearBtn');
 
 consolelogLocalBtn.addEventListener('click', function (e) {
 
     let testArray = JSON.parse(localStorage.getItem('localArrayKey'));
     console.log(testArray);
 });
+
+clearBtn.addEventListener('click',function(e){
+localStorage.removeItem('localArrayKey');
+console.log(localStorage.getItem('localArrayKey'));
+});
+
+
+
+
 sumitBtn.addEventListener('click',function(e){
 
 let obj = {
@@ -33,7 +43,23 @@ inputArea.value="";
 function saveData(){
     localStorage.setItem('localArrayKey',JSON.stringify(exampleData));
 }
+function populateDropDownMenu(){
+anakin(dropdownMenu);
+exampleData.forEach(element =>{
+    let a = document.createElement('a');
+    a.setAttribute('class','dropdown-item');
+    a.setAttribute('href','#');
+    a.innerText = element.title;
+    dropdownMenu.appendChild(a);
+//element.title
+});
 
+}
+function populateListItems(){
+    
+}
 function anakin(chamber){
-
+while(chamber.firstChild){
+    chamber.removeChild(chamber.firstChild);
+}
 }

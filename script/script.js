@@ -12,7 +12,7 @@ let setLocalBtn = document.getElementById('setLocalBtn');
 let consolelogLocalBtn = document.getElementById('consolelogLocalBtn');
 let inputArea = document.getElementById('inputArea');
 let sumitBtn = document.getElementById('sumitBtn');
-let dropdownMenuButton = document.getElementById('dropdownMenuButton');
+let dropdownMenu = document.getElementById('dropdownMenu');
 let elementArea = document.getElementById('elementAre');
 let clearBtn = document.getElementById('clearBtn');
 
@@ -22,44 +22,44 @@ consolelogLocalBtn.addEventListener('click', function (e) {
     console.log(testArray);
 });
 
-clearBtn.addEventListener('click',function(e){
-localStorage.removeItem('localArrayKey');
-console.log(localStorage.getItem('localArrayKey'));
+clearBtn.addEventListener('click', function (e) {
+    localStorage.removeItem('localArrayKey');
+    console.log(localStorage.getItem('localArrayKey'));
 });
 
 
 
 
-sumitBtn.addEventListener('click',function(e){
+sumitBtn.addEventListener('click', function (e) {
 
-let obj = {
-title: inputArea.value,
-listItems: []
-} 
-exampleData.push(obj);
-saveData();
-inputArea.value="";
+    let obj = {
+        title: inputArea.value,
+        listItems: []
+    }
+    exampleData.push(obj);
+    saveData();
+    inputArea.value = "";
 });
-function saveData(){
-    localStorage.setItem('localArrayKey',JSON.stringify(exampleData));
+function saveData() {
+    localStorage.setItem('localArrayKey', JSON.stringify(exampleData));
 }
-function populateDropDownMenu(){
-anakin(dropdownMenu);
-exampleData.forEach(element =>{
-    let a = document.createElement('a');
-    a.setAttribute('class','dropdown-item');
-    a.setAttribute('href','#');
-    a.innerText = element.title;
-    dropdownMenu.appendChild(a);
-//element.title
-});
+function populateDropDownMenu() {
+    anakin(dropdownMenu);
+    exampleData.forEach(element => {
+        let a = document.createElement('a');
+        a.setAttribute('class', 'dropdown-item');
+        a.setAttribute('href', '#');
+        a.innerText = element.title;
+        dropdownMenu.appendChild(a);
+        //element.title
+    });
 
 }
-function populateListItems(){
-    
+function populateListItems() {
+
 }
-function anakin(chamber){
-while(chamber.firstChild){
-    chamber.removeChild(chamber.firstChild);
-}
+function anakin(chamber) {
+    while (chamber.firstChild) {
+        chamber.removeChild(chamber.firstChild);
+    }
 }
